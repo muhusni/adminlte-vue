@@ -50,12 +50,12 @@ export default {
     async login ({ dispatch, commit }, credentials) {
       await commit('SET_LOADING', true)
       commit('SET_LOGIN_ALERT', null)
-      await axios.post('login', credentials).then(function (response) {
+      await axios.post('auth/login', credentials).then(function (response) {
         // console.log(response)
         // setTimeout(() => {, 5000)})
         // setTimeout(() => {
-          // }, 500)
-        return dispatch('attempt', response.data.token)
+        // }, 500)
+        return dispatch('attempt', response.data.access_token)
       }).catch(error => {
         console.log(error)
         commit('SET_LOADING', false)
@@ -74,7 +74,7 @@ export default {
       }
 
       try {
-        await axios.get('me').then(function (response) {
+        await axios.get('auth/me').then(function (response) {
           commit('SET_USER', response.data)
         })
         //    .catch( error => {
@@ -94,7 +94,7 @@ export default {
       if (state.token == null) {
         router.push({ path: 'login' })
       }
-      return await axios.post('logout').then(() => {
+      return await axios.post('auth/logout').then(() => {
         commit('SET_USER', null)
         commit('SET_TOKEN', null)
         // Vue.$toast.info('Berhasil Logout')

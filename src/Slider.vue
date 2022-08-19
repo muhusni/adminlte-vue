@@ -8,24 +8,14 @@
           <img src="~admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ $store.state.auth.user.user.name }}</p>
+          <p>{{ $store.state.auth.user.name }}</p>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul data-widget="tree" class="sidebar-menu">
-        <va-slide-item
-          v-for="(item,index) in slideMenuItems"
-          :data="item"
-          :key="index"
-          :type="item.type"
-          :isHeader="item.isHeader"
-          :icon="item.icon"
-          :name="item.name"
-          :badge="item.badge"
-          :items="item.items"
-          :router="item.router"
-          :link="item.link"
-        >
+        <va-slide-item v-for="(item, index) in slideMenuItems" :data="item" :key="index" :type="item.type"
+          :isHeader="item.isHeader" :icon="item.icon" :name="item.name" :badge="item.badge" :items="item.items"
+          :router="item.router" :link="item.link">
         </va-slide-item>
       </ul>
     </section>

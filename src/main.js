@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
     } else {
       next({
         path: '/login',
-        params: {nextUrl: to.fullPath}
+        params: { nextUrl: to.fullPath }
       })
       // console.log('gak ada tokennya')
     }

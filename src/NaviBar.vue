@@ -21,14 +21,14 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="~admin-lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ $store.state.auth.user.user.name }}</span>
+              <span class="hidden-xs">{{ $store.state.auth.user.name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
                 <img src="~admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 <p>
-                  {{ $store.state.auth.user.user.name }}
+                  {{ $store.state.auth.user.name }}
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -58,7 +58,7 @@ export default {
     }),
     out () {
       this.logout().then(() => {
-        this.$router.push({path: '/login'})
+        this.$router.push({ path: '/login' })
       })
     }
   },
